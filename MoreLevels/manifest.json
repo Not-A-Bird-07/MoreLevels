@@ -1,0 +1,10 @@
+{
+  "Id": "NotABird.MoreLevels",
+  "AssemblyPath": "MoreLevels.dll",
+  "Metadata": {
+    "Name": "MoreLevels",
+    "Author": "Not A Bird",
+    "Version": "1.0.0",
+    "Description": "Adds more levels to the game"
+  }
+}

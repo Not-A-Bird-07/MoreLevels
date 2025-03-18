@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GDWeavePath>/home/notabird/.local/share/com.kesomannen.gale/webfishing/profiles/Default/GDWeave</GDWeavePath>
+        <AssemblySearchPaths>$(AssemblySearchPaths);$(GDWeavePath)/core</AssemblySearchPaths>
+        <Version>1.0.0.0</Version>
+        <RootNamespace>MoreLevels</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="GDWeave" Private="false"/>
+        <Reference Include="Serilog" Private="false"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="manifest.json" CopyToOutputDirectory="PreserveNewest"/>
+    </ItemGroup>
+
+    <Target Name="CopyToPlugins" AfterTargets="Build">
+        <ItemGroup>
+            <FilesToCopy Include="$(TargetDir)**/*" />
+        </ItemGroup>
+        <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(GDWeavePath)/mods/$(AssemblyName)/" />
+        <Message Text="Copied all files and folders to Plugins" Importance="high"/>
+    </Target>
+</Project>
