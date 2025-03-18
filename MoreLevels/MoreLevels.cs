@@ -15,7 +15,7 @@ public class MoreLevels : IScriptMod
     {
         NewLevels.Clear();
         NewLevels = ["VOYAGER II", "VOYAGER III", "VOYAGER IV", "VOYAGER V"];
-        for (int i = 56; i < NewLevels.Count; i++) NewLevels.Add(i.ToString());
+        for (int i = 55; i < 1000; i++) NewLevels.Add(i.ToString());
         
         MultiTokenWaiter tokenWaiter = new MultiTokenWaiter([
             t => t is ConstantToken{Value: StringVariant{Value:"title_rank_50"}},
